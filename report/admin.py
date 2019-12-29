@@ -31,7 +31,7 @@ class ReportAdmin(admin.ModelAdmin):
             'fields': ['date_from', 'date_to'],
         }),
         ('REPORT DETAIL', {
-            'fields': ['report_type', 'name', 'detail'],
+            'fields': ['report_type', 'vehicle', 'name', 'detail'],
         }),
         (
          'REPORT PREVIEW', {
@@ -47,17 +47,10 @@ class ReportAdmin(admin.ModelAdmin):
     preview_detail.admin_order_field = 'detail'
 
     def preview_report(self, obj):
-        return format_html('''
-            {}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-            </table>
-        '''.format((obj.report_item.all())))
+        tbody = u''
+        for item in obj.reportitem_set.all():
+            tbody = format_html(u'<tr><td>{}</td><td>{}</td></tr>', item.name, item.value) + tbody
+        return format_html(u"<table><thead><tr><th>Name</th><th>Value</th></tr></thead><tbody>{}</tbody></table>", tbody)
 
     preview_report.short_description = 'Preview Report'
 

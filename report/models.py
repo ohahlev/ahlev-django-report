@@ -1,5 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField
+from vehicle.models.vehicle import Vehicle
 
 class ReportType(models.Model):
     name = models.CharField(max_length=32, unique=True, blank=False)
@@ -9,7 +10,7 @@ class ReportType(models.Model):
     
     class Meta:
         verbose_name = 'Report Type'
-        verbose_name_plural = 'Report Types'
+        db_table = 'report_type'
 
     def __str__(self):
         return self.name
@@ -23,6 +24,7 @@ class Report(models.Model):
     last_updated = models.DateTimeField(auto_now=True)
 
     report_type = models.ForeignKey(ReportType, on_delete=models.CASCADE, verbose_name='Report Type')
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, verbose_name='Vehicle')
 
     class Meta:
         verbose_name = 'Report'
@@ -38,6 +40,7 @@ class ItemType(models.Model):
 
     class Meta:
         verbose_name = 'Item Type'
+        db_table = 'item_type'
     
     def __str__(self):
         return self.name
@@ -53,7 +56,7 @@ class ReportItem(models.Model):
 
     class Meta:
         verbose_name = 'Report Item'
-        verbose_name_plural = 'Report Items'
+        db_table = 'report_item'
 
     def __str__(self):
         return self.name
