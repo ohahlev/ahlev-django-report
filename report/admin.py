@@ -31,7 +31,7 @@ class ReportAdmin(admin.ModelAdmin):
             'fields': ['date_from', 'date_to'],
         }),
         ('REPORT DETAIL', {
-            'fields': ['report_type', 'vehicle', 'name', 'detail'],
+            'fields': ['report_type', 'name', 'detail'],
         }),
         (
          'REPORT PREVIEW', {

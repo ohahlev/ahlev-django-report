@@ -1,8 +1,13 @@
 # DJANGO REPORT APPLICATION
+![pypi](https://img.shields.io/pypi/v/ahlev-django-report) ![pypi](https://img.shields.io/pypi/status/ahlev-django-report)
+
+This django application is used to create report.
+
+## prerequisites
 The instructions below assume that you have a django project already set up; and a python virtual environment already installed and activated. 
 
 ## styles
-All ahlev-django applications are using styles from [mdbootstrap.com](https://mdbootstrap.com), so please make sure you install [ahlev-django-css-js](https://github.com/ohahlevahlev-django-css-js.git) first
+All ahlev-django applications are using styles from [mdbootstrap.com](https://mdbootstrap.com), so please make sure you install [ahlev-django-css-js](https://github.com/ohahlevahlev-django-css-js.git) first.
 
 ## install from this repository
 ### clone
@@ -26,10 +31,7 @@ pip install dist/ahlev-django-report-0.0.1.tar.gz
 ```
 
 ## install from pypi
-### go to the project directory
-```
-pip install -i https://test.pypi.org/simple/ ahlev-django-report
-```
+[ahlev-django-report](https://pypi.org/project/ahlev-django-report/)
 
 ## project configuration
 ### update settings.py as the following
@@ -45,7 +47,6 @@ INSTALLED_APPS = [
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
-#STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/medias/'
@@ -56,7 +57,7 @@ MEDIA_URL = '/medias/'
 ![](screenshot/report_backend1.png)
 
 ### backend: list all report type
-![](screenshot/report_backend1.png)
+![](screenshot/report_backend2.png)
 
 ### backend: edit a report
-![](screenshot/report_backend2.png)
+![](screenshot/report_backend3.png)
